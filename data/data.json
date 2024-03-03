@@ -1,0 +1,43 @@
+{
+  "tareas": [
+    {
+      "id": "3c7f",
+      "task": "primera tarea",
+      "fechaInicio": "2024-03-03T13:00",
+      "fechaFin": "2024-03-04T13:00",
+      "responsable": "Fauroro",
+      "prioridad": "Urgente",
+      "estado": "2"
+    },
+    {
+      "id": "ba32",
+      "task": "segunda tarea",
+      "fechaInicio": "2024-03-03T15:10",
+      "fechaFin": "2024-03-04T15:10",
+      "responsable": "Fauroro",
+      "prioridad": "Baja Priodidad",
+      "estado": "1"
+    },
+    {
+      "id": "7a32",
+      "task": "tercera tarea",
+      "fechaInicio": "2024-03-03T15:10",
+      "fechaFin": "2024-03-04T15:10",
+      "responsable": "Fauroro",
+      "prioridad": "Urgente",
+      "estado": "2"
+    },
+    {
+      "id": "b1bc",
+      "task": "asd",
+      "fechaInicio": "2024-03-02T15:20",
+      "fechaFin": "2024-03-03T14:20",
+      "responsable": "asd",
+      "prioridad": "Importante",
+      "estado": "3"
+    }
+  ],
+  "pendientes": [],
+  "cumplidas": [],
+  "fallidas": []
+}
