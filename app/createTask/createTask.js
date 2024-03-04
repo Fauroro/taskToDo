@@ -1,5 +1,5 @@
-import { getTasks } from '../../Apis/apitask.js';
-import { postTasks } from '../../Apis/apitask.js';
+import { getTasks } from '../../apis/apitask.js';
+import { postTasks } from '../../apis/apitask.js';
 
 export class CreateTask extends HTMLElement {
   constructor() {

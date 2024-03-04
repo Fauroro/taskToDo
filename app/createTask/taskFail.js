@@ -1,6 +1,6 @@
-import { getTasks } from '../../Apis/apitask.js';
-import { putTasks } from '../../Apis/apitask.js';
-import { postTasks } from '../../Apis/apitask.js';
+import { getTasks } from '../../apis/apitask.js';
+import { putTasks } from '../../apis/apitask.js';
+import { postTasks } from '../../apis/apitask.js';
 
 export class taskFail extends HTMLElement {
   constructor() {
@@ -81,8 +81,8 @@ export class taskFail extends HTMLElement {
         const labelSwitch = document.createElement('label');
         labelSwitch.classList.add('form-check-label');
         labelSwitch.setAttribute('for', id);
-        labelSwitch.textContent = 'Tarea Finalizada'
-
+        labelSwitch.textContent = 'Eliminar Tarea'
+        
         const inputSwitch = document.createElement('input');
         inputSwitch.classList.add('form-check-input', id)
         inputSwitch.setAttribute('id', id);
@@ -105,8 +105,11 @@ export class taskFail extends HTMLElement {
 
   render() {
     this.innerHTML = /*html*/`
+      <style rel="stylesheet">
+        @import "./app/createTask/taskDone.css";
+      </style>
       <div class="card mt-3">
-        <div class="card-header">Tareas Cumplidas</div>
+        <div class="card-header">Tareas Vencidas</div>
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-3 g-4">
               <br>No se tienen tareas pendientes

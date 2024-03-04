@@ -1,7 +1,7 @@
-import { getTasks } from '../../Apis/apitask.js';
-import { putTasks } from '../../Apis/apitask.js';
-import { postTasks } from '../../Apis/apitask.js';
-import { delTasks } from '../../Apis/apitask.js';
+import { getTasks } from '../../apis/apitask.js';
+import { putTasks } from '../../apis/apitask.js';
+import { postTasks } from '../../apis/apitask.js';
+import { delTasks } from '../../apis/apitask.js';
 
 
 export class taskTrash extends HTMLElement {
@@ -77,26 +77,26 @@ export class taskTrash extends HTMLElement {
         const cardFooter = document.createElement('div');
         cardFooter.classList.add('card-footer');
 
-        const divSwitch = document.createElement("div");
-        divSwitch.classList.add('form-check', 'form-switch');
+        // const divSwitch = document.createElement("div");
+        // divSwitch.classList.add('form-check', 'form-switch');
 
-        const labelSwitch = document.createElement('label');
-        labelSwitch.classList.add('form-check-label');
-        labelSwitch.setAttribute('for', id);
-        labelSwitch.textContent = 'Tarea Finalizada'
+        // const labelSwitch = document.createElement('label');
+        // labelSwitch.classList.add('form-check-label');
+        // labelSwitch.setAttribute('for', id);
+        // labelSwitch.textContent = 'Tarea Finalizada'
 
-        const inputSwitch = document.createElement('input');
-        inputSwitch.classList.add('form-check-input', id)
-        inputSwitch.setAttribute('id', id);
-        inputSwitch.setAttribute('type', 'checkbox');
-        inputSwitch.setAttribute('role', 'switch');
+        // const inputSwitch = document.createElement('input');
+        // inputSwitch.classList.add('form-check-input', id)
+        // inputSwitch.setAttribute('id', id);
+        // inputSwitch.setAttribute('type', 'checkbox');
+        // inputSwitch.setAttribute('role', 'switch');
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         card.appendChild(cardBody);
-        divSwitch.appendChild(labelSwitch);
-        divSwitch.appendChild(inputSwitch);
-        cardFooter.appendChild(divSwitch);
+        // divSwitch.appendChild(labelSwitch);
+        // divSwitch.appendChild(inputSwitch);
+        // cardFooter.appendChild(divSwitch);
         card.appendChild(cardFooter);
         cardCol.appendChild(card);
         cardContainer.appendChild(cardCol);
@@ -126,7 +126,6 @@ export class taskTrash extends HTMLElement {
       if (item.estado === "4") {
         delTasks(item, item.id)
       }
-      // putTasks(item, item.id);
     });
   }
 }

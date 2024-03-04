@@ -1,7 +1,7 @@
-import { getTasks } from '../../Apis/apitask.js';
-import { putTasks } from '../../Apis/apitask.js';
-import { postTasks } from '../../Apis/apitask.js';
-import { delTasks } from '../../Apis/apitask.js';
+import { getTasks } from '../../apis/apitask.js';
+import { putTasks } from '../../apis/apitask.js';
+import { postTasks } from '../../apis/apitask.js';
+import { delTasks } from '../../apis/apitask.js';
 
 export class taskDone extends HTMLElement {
   constructor() {
@@ -31,9 +31,9 @@ export class taskDone extends HTMLElement {
       this.crearCard(data);
       document.querySelector('#btnGuardar').addEventListener("click", (e) => {
         console.log(data);
+        this.saveData(data);
         e.stopImmediatePropagation();
         e.preventDefault();
-        this.saveData(data);
       })
     }
   }
@@ -106,6 +106,9 @@ export class taskDone extends HTMLElement {
 
   render() {
     this.innerHTML = /*html*/`
+      <style rel="stylesheet">
+        @import "./app/createTask/taskDone.css";
+      </style>
       <div class="card mt-3">
         <div class="card-header">Tareas Cumplidas</div>
           <div class="card-body">

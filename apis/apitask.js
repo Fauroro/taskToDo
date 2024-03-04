@@ -59,7 +59,7 @@ const delTask = (datos,id) =>{
 
     fetch(`${URL_API}/tareas/${id}`,
 	{
-		method: "DEL",
+		method: "DELETE",
 		headers: myHeaders,
 		body:JSON.stringify(datos)
 	}
