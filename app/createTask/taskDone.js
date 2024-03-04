@@ -1,8 +1,9 @@
 import { getTasks } from '../../Apis/apitask.js';
 import { putTasks } from '../../Apis/apitask.js';
 import { postTasks } from '../../Apis/apitask.js';
+import { delTasks } from '../../Apis/apitask.js';
 
-export class taskToDo extends HTMLElement {
+export class taskDone extends HTMLElement {
   constructor() {
     super();
     this.render();
@@ -47,7 +48,7 @@ export class taskToDo extends HTMLElement {
     cardContainer.innerHTML = '';
     data.forEach(item => {
 
-      if (item.estado === '1') {
+      if (item.estado === '2') {
         let task = item.task;
         let id = item.id;
         const cardCol = document.createElement('div');
@@ -81,7 +82,7 @@ export class taskToDo extends HTMLElement {
         const labelSwitch = document.createElement('label');
         labelSwitch.classList.add('form-check-label');
         labelSwitch.setAttribute('for', id);
-        labelSwitch.textContent = 'Tarea Finalizada'
+        labelSwitch.textContent = 'Eliminar Tarea'
 
         const inputSwitch = document.createElement('input');
         inputSwitch.classList.add('form-check-input', id)
@@ -106,10 +107,10 @@ export class taskToDo extends HTMLElement {
   render() {
     this.innerHTML = /*html*/`
       <div class="card mt-3">
-        <div class="card-header">Tareas Pendientes</div>
+        <div class="card-header">Tareas Cumplidas</div>
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-              <br>No se tienen tareas pendientes
+              <br>No se tienen tareas cumplidas
             </div>
             <div class="container mt-4 text-center">
               <button type="button" class="btn btn-primary" id="btnGuardar" data-bs-toggle="button">Guardar Cambios</button>
@@ -121,17 +122,16 @@ export class taskToDo extends HTMLElement {
   }
   saveData = (data) => {    
     data.forEach(item => {
-      if (item.estado === "1") {
+      if (item.estado === "2") {
         console.log();
         const idCheck = this.getElementsByClassName(`${item.id}`);
         if (idCheck[0].checked) {
-          item.estado = '2';
+          item.estado = '4';
         }
       }
       putTasks(item, item.id);
     });
-    mainContent.innerHTML = '<task-to-do></task-to-do>'
   }
 }
 
-customElements.define("task-to-do", taskToDo);
+customElements.define("task-done", taskDone);

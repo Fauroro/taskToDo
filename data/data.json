@@ -35,6 +35,33 @@
       "responsable": "asd",
       "prioridad": "Importante",
       "estado": "3"
+    },
+    {
+      "id": "7636",
+      "task": "dsafasdghyfsgjfas",
+      "fechaInicio": "2024-03-03T17:46",
+      "fechaFin": "2024-03-13T17:46",
+      "responsable": "Fauroro",
+      "prioridad": "Importante",
+      "estado": "4"
+    },
+    {
+      "id": "6d46",
+      "task": "dsafasdghyfsgjfas",
+      "fechaInicio": "2024-03-03T17:48",
+      "fechaFin": "2024-03-11T17:48",
+      "responsable": "Fauroro",
+      "prioridad": "Baja Priodidad",
+      "estado": "4"
+    },
+    {
+      "id": "fbf0",
+      "task": "tarea de prueba",
+      "fechaInicio": "2024-03-03T20:51",
+      "fechaFin": "2024-03-06T20:51",
+      "responsable": "Altair",
+      "prioridad": "Baja Priodidad",
+      "estado": "2"
     }
   ],
   "pendientes": [],

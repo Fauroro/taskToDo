@@ -55,8 +55,26 @@ const putTask = (datos,id) =>{
     })
 
 }
+const delTask = (datos,id) =>{
+
+    fetch(`${URL_API}/tareas/${id}`,
+	{
+		method: "DEL",
+		headers: myHeaders,
+		body:JSON.stringify(datos)
+	}
+    ).then(res=>{
+        return res.json()
+    }).then(res=>{
+        //idUser=res.id;
+    }).catch(err=>{
+        console.log(err);
+    })
+
+}
 export {
     getTask as getTasks,
     postTask as postTasks,
-    putTask as putTasks
+    putTask as putTasks,
+    delTask as delTasks
 };

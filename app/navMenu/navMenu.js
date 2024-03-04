@@ -28,6 +28,9 @@ export class NavMenu extends HTMLElement {
               <li class="nav-item">
                 <a class="nav-link" data-verocultar='["d"]' href="#">Tareas No Cumplidas</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" data-verocultar='["e"]' href="#">Papelera de Tareas </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -40,21 +43,23 @@ export class NavMenu extends HTMLElement {
         mainContent.innerHTML = '';
         switch (data[0]) {
           case 'a':
-            mainContent.innerHTML="<create-task></create-task>";
+            mainContent.innerHTML = "<create-task></create-task>";
             break;
           case 'b':
             mainContent.innerHTML = '<task-to-do></task-to-do>'
             break;
           case 'c':
-            mainContent.innerHTML = 'ALV si funciono XD 🤯'
+            mainContent.innerHTML = '<task-done></task-done>'
             break;
           case 'd':
-            mainContent.innerHTML = 'ALV XD 🤯'
+            mainContent.innerHTML = '<task-fail></task-fail>'
+            break;
+          case 'e':
+            mainContent.innerHTML = '<task-trash></task-trash>'
             break;
         }
         e.stopImmediatePropagation();
         e.preventDefault();
-
       })
     });
 

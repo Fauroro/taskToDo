@@ -2,7 +2,7 @@ import { getTasks } from '../../Apis/apitask.js';
 import { putTasks } from '../../Apis/apitask.js';
 import { postTasks } from '../../Apis/apitask.js';
 
-export class taskToDo extends HTMLElement {
+export class taskFail extends HTMLElement {
   constructor() {
     super();
     this.render();
@@ -47,7 +47,7 @@ export class taskToDo extends HTMLElement {
     cardContainer.innerHTML = '';
     data.forEach(item => {
 
-      if (item.estado === '1') {
+      if (item.estado === '3') {
         let task = item.task;
         let id = item.id;
         const cardCol = document.createElement('div');
@@ -106,7 +106,7 @@ export class taskToDo extends HTMLElement {
   render() {
     this.innerHTML = /*html*/`
       <div class="card mt-3">
-        <div class="card-header">Tareas Pendientes</div>
+        <div class="card-header">Tareas Cumplidas</div>
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-3 g-4">
               <br>No se tienen tareas pendientes
@@ -130,8 +130,7 @@ export class taskToDo extends HTMLElement {
       }
       putTasks(item, item.id);
     });
-    mainContent.innerHTML = '<task-to-do></task-to-do>'
   }
 }
 
-customElements.define("task-to-do", taskToDo);
+customElements.define("task-fail", taskFail);

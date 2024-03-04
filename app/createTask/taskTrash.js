@@ -1,8 +1,10 @@
 import { getTasks } from '../../Apis/apitask.js';
 import { putTasks } from '../../Apis/apitask.js';
 import { postTasks } from '../../Apis/apitask.js';
+import { delTasks } from '../../Apis/apitask.js';
 
-export class taskToDo extends HTMLElement {
+
+export class taskTrash extends HTMLElement {
   constructor() {
     super();
     this.render();
@@ -32,7 +34,7 @@ export class taskToDo extends HTMLElement {
         console.log(data);
         e.stopImmediatePropagation();
         e.preventDefault();
-        this.saveData(data);
+        this.delData(data);
       })
     }
   }
@@ -47,7 +49,7 @@ export class taskToDo extends HTMLElement {
     cardContainer.innerHTML = '';
     data.forEach(item => {
 
-      if (item.estado === '1') {
+      if (item.estado === '4') {
         let task = item.task;
         let id = item.id;
         const cardCol = document.createElement('div');
@@ -106,32 +108,27 @@ export class taskToDo extends HTMLElement {
   render() {
     this.innerHTML = /*html*/`
       <div class="card mt-3">
-        <div class="card-header">Tareas Pendientes</div>
+        <div class="card-header">Papelera de Tareas </div>
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-              <br>No se tienen tareas pendientes
+              <br>No hay tareas en la papelera
             </div>
             <div class="container mt-4 text-center">
-              <button type="button" class="btn btn-primary" id="btnGuardar" data-bs-toggle="button">Guardar Cambios</button>
+              <button type="button" class="btn btn-danger" id="btnGuardar" data-bs-toggle="button">Eliminar Todo</button>
             </div>
           </div>
         </div>
       </div>
     `;
   }
-  saveData = (data) => {    
+  delData = (data) => {
     data.forEach(item => {
-      if (item.estado === "1") {
-        console.log();
-        const idCheck = this.getElementsByClassName(`${item.id}`);
-        if (idCheck[0].checked) {
-          item.estado = '2';
-        }
+      if (item.estado === "4") {
+        delTasks(item, item.id)
       }
-      putTasks(item, item.id);
+      // putTasks(item, item.id);
     });
-    mainContent.innerHTML = '<task-to-do></task-to-do>'
   }
 }
 
-customElements.define("task-to-do", taskToDo);
+customElements.define("task-trash", taskTrash);
