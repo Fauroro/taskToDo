@@ -7,13 +7,13 @@
       "fechaFin": "2024-03-04T13:00",
       "responsable": "Fauroro",
       "prioridad": "Urgente",
-      "estado": "2"
+      "estado": "3"
     },
     {
       "id": "ba32",
       "task": "segunda tarea",
       "fechaInicio": "2024-03-03T15:10",
-      "fechaFin": "2024-03-04T15:10",
+      "fechaFin": "2024-04-04T15:10",
       "responsable": "Fauroro",
       "prioridad": "Baja Priodidad",
       "estado": "1"
@@ -22,10 +22,10 @@
       "id": "7a32",
       "task": "tercera tarea",
       "fechaInicio": "2024-03-03T15:10",
-      "fechaFin": "2024-03-04T15:10",
+      "fechaFin": "2024-04-04T15:10",
       "responsable": "Fauroro",
       "prioridad": "Urgente",
-      "estado": "2"
+      "estado": "1"
     },
     {
       "id": "b1bc",
@@ -52,7 +52,7 @@
       "fechaFin": "2024-03-05T06:50",
       "responsable": "nataaaaaaaaaaa",
       "prioridad": "Urgente",
-      "estado": "1"
+      "estado": "4"
     },
     {
       "id": "24da",
@@ -71,6 +71,15 @@
       "responsable": "",
       "prioridad": "",
       "estado": "4"
+    },
+    {
+      "id": "c914",
+      "task": "tarea de prueba",
+      "fechaInicio": "2024-03-04T16:30",
+      "fechaFin": "2024-04-04T16:31",
+      "responsable": "Fauroro",
+      "prioridad": "Urgente",
+      "estado": "2"
     }
   ]
 }

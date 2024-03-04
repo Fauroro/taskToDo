@@ -16,9 +16,8 @@ export class taskToDo extends HTMLElement {
   async loadDataAndRender() {
     let data = await this.loadData();
     const btnGuardar = this.querySelector('#btnGuardar');
-    if (data.length === 0) {
-      btnGuardar.style.display = 'none';
-    } else {
+    let condition;
+    if (condition = data.some(item => item.estado === '1')) {
       btnGuardar.style.display = 'inline-block';
       const fechaActual = new Date();
       data.forEach(item => {
@@ -29,11 +28,12 @@ export class taskToDo extends HTMLElement {
       });
       this.crearCard(data);
       document.querySelector('#btnGuardar').addEventListener("click", (e) => {
-        console.log(data);
         e.stopImmediatePropagation();
         e.preventDefault();
         this.saveData(data);
-      })
+      });
+    } else {
+      btnGuardar.style.display = 'none';
     }
   }
 
@@ -119,10 +119,9 @@ export class taskToDo extends HTMLElement {
       </div>
     `;
   }
-  saveData = (data) => {    
+  saveData = (data) => {
     data.forEach(item => {
       if (item.estado === "1") {
-        console.log();
         const idCheck = this.getElementsByClassName(`${item.id}`);
         if (idCheck[0].checked) {
           item.estado = '2';

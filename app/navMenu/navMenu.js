@@ -26,7 +26,7 @@ export class NavMenu extends HTMLElement {
                 <a class="nav-link" data-verocultar='["c"]' href="#">Tareas Cumplidas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-verocultar='["d"]' href="#">Tareas No Cumplidas</a>
+                <a class="nav-link" data-verocultar='["d"]' href="#">Tareas Vencidas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-verocultar='["e"]' href="#">Papelera de Tareas </a>

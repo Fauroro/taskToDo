@@ -36,12 +36,13 @@ export class CreateTask extends HTMLElement {
               <div class="col">
                 <input type="datetime-local" id="fechaFin" name="fechaFin" required>
                 <div class="invalid-feedback">* Campo requerido.</div>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col">
+                </div>
+                </div>
+                <div class="row mt-3">
+                <div class="col">
                 <label for="responsable" class="form-label">Responsable</label>
-                <input type="text" class="form-control" id="responsable" name="responsable" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="responsable" name="responsable" aria-describedby="emailHelp" required>
+                <div class="invalid-feedback">* Campo requerido.</div>
               </div>
             </div>
             <div class="row mt-3"></div>
@@ -59,7 +60,7 @@ export class CreateTask extends HTMLElement {
             </div>
             <div class="col">
               <div class="container mt-4 text-center">
-              <button type="button" class="btn btn-primary" id="btnGuardar" data-bs-toggle="button">Guardar Registro</button>
+              <button type="button" class="btn btn-primary" id="btnGuardar" data-bs-toggle="button" disabled>Guardar Registro</button>
               <button type="button" class="btn btn-danger" id="btnCancelar" data-bs-toggle="button">Limpiar registro</button>
               </div>
             </div>
@@ -69,21 +70,24 @@ export class CreateTask extends HTMLElement {
     </div>
     `;
 
+    const frmRegistro = document.querySelector('#frmDataTask');
+    const btnGuardar = document.querySelector('#btnGuardar');
+
+    const formInputs = frmRegistro.querySelectorAll('input,select');
+
+    formInputs.forEach(input =>{
+      input.addEventListener('input', () =>{
+        const llenos = Array.from(formInputs).every(input =>input.value.trim()!=='');
+        btnGuardar.disabled = !llenos
+      });
+    });
   }
+  
   saveData = () => {
-    // const datos = Object.fromEntries(new FormData(frmRegistro).entries());
-    // console.log(datos);
-    // const btnGuardar = this.querySelector('#btnGuardar');
-    // let condition;
-    // condition = Object.values(datos).some(valor => valor === '');
-    // if (condition!==true) {
-    //   btnGuardar.removeAttribute('disabled')      
-    // }
     const frmRegistro = document.querySelector('#frmDataTask');
     document.querySelector('#btnGuardar').addEventListener("click", (e) => {
       const datos = Object.fromEntries(new FormData(frmRegistro).entries());
       datos['estado']='1';
-      console.log(datos);
       postTasks(datos);
       e.stopImmediatePropagation();
       e.preventDefault();

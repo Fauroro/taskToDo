@@ -18,9 +18,8 @@ export class taskTrash extends HTMLElement {
   async loadDataAndRender() {
     let data = await this.loadData();
     const btnGuardar = this.querySelector('#btnGuardar');
-    if (data.length === 0) {
-      btnGuardar.style.display = 'none';
-    } else {
+    let condition;
+    if (condition = data.some(item => item.estado === '4')) {
       btnGuardar.style.display = 'inline-block';
       const fechaActual = new Date();
       data.forEach(item => {
@@ -31,11 +30,12 @@ export class taskTrash extends HTMLElement {
       });
       this.crearCard(data);
       document.querySelector('#btnGuardar').addEventListener("click", (e) => {
-        console.log(data);
         e.stopImmediatePropagation();
         e.preventDefault();
         this.delData(data);
       })
+    } else {
+      btnGuardar.style.display = 'none';
     }
   }
 
@@ -76,27 +76,9 @@ export class taskTrash extends HTMLElement {
 
         const cardFooter = document.createElement('div');
         cardFooter.classList.add('card-footer');
-
-        // const divSwitch = document.createElement("div");
-        // divSwitch.classList.add('form-check', 'form-switch');
-
-        // const labelSwitch = document.createElement('label');
-        // labelSwitch.classList.add('form-check-label');
-        // labelSwitch.setAttribute('for', id);
-        // labelSwitch.textContent = 'Tarea Finalizada'
-
-        // const inputSwitch = document.createElement('input');
-        // inputSwitch.classList.add('form-check-input', id)
-        // inputSwitch.setAttribute('id', id);
-        // inputSwitch.setAttribute('type', 'checkbox');
-        // inputSwitch.setAttribute('role', 'switch');
-
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         card.appendChild(cardBody);
-        // divSwitch.appendChild(labelSwitch);
-        // divSwitch.appendChild(inputSwitch);
-        // cardFooter.appendChild(divSwitch);
         card.appendChild(cardFooter);
         cardCol.appendChild(card);
         cardContainer.appendChild(cardCol);
